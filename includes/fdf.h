@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgresse <bgresse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gresse <gresse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 00:15:59 by gresse            #+#    #+#             */
-/*   Updated: 2022/12/23 14:57:18 by bgresse          ###   ########.fr       */
+/*   Updated: 2022/12/26 00:43:51 by gresse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ void	read_file(char *file_name, t_fdf *data);
 void	bresenham(float x1, float y1, t_fdf data);
 void	draw(t_fdf *data);
 
+void read_xbm_file(char *file_name, t_fdf *data);
+
 int		close_window(t_fdf *data);
 int		deal_key(int keycode, t_fdf *data);
 void	moove_camera(int keycode, t_fdf *data);
@@ -87,4 +89,5 @@ void	reset_rotation(t_fdf *data);
 void	moove_camera(int keycode, t_fdf *data);
 void	rotation_fdf(int keycode, t_fdf *data);
 
+void	allocated_matrix(t_fdf *data);
 #endif

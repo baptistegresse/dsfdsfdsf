@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgresse <bgresse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gresse <gresse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:30:47 by bgresse           #+#    #+#             */
-/*   Updated: 2022/12/23 19:35:32 by bgresse          ###   ########.fr       */
+/*   Updated: 2022/12/26 01:13:26 by gresse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	get_height_width(char *file_name, t_fdf *data)
 	close(fd);
 }
 
-static void	allocated_matrix(t_fdf *data)
+void	allocated_matrix(t_fdf *data)
 {
 	int		index;
 

@@ -9,6 +9,7 @@ SRC_DIR		:=	sources/
 SRC			:=	main.c 			\
 				draw.c 			\
 				read_file.c		\
+				read_xbm_file.c	\
 				hooks.c			\
 				maths.c			\
 				colors.c		\

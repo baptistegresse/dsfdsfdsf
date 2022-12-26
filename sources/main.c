@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgresse <bgresse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gresse <gresse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:31:34 by bgresse           #+#    #+#             */
-/*   Updated: 2022/12/23 15:32:02 by bgresse          ###   ########.fr       */
+/*   Updated: 2022/12/26 02:39:45 by gresse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+#include <stdio.h>
 
 static void	init_struct(t_fdf *data)
 {
@@ -32,15 +33,33 @@ int	main(int argc, char **argv)
 {
 	t_fdf	*data;
 
-	if (argc != 2)
-		return (0);
-	if (open(argv[1], O_RDONLY) < 0)
+	if (argc != 2 || open(argv[1], O_RDONLY) < 0)
 		return (0);
 	data = (t_fdf *)malloc(sizeof(t_fdf));
 	if (!data)
 		return (0);
 	init_struct(data);
-	read_file(argv[1], data);
+	if (ft_strnstr(argv[1], ".fdf", ft_strlen(argv[1])))
+		read_file(argv[1], data);
+	if (ft_strnstr(argv[1], ".xbm", ft_strlen(argv[1])))
+		read_xbm_file(argv[1], data);
+	
+	int i = 0;
+	int j = 0;
+
+	while (i < data->height)
+	{
+		j = 0;
+		while (j < data->width)
+		{
+			printf("%d", data->z_matrix[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+
+
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, WIN_H, WIN_W, "FDF");
 	data->img = mlx_new_image(data->mlx_ptr, 2000, 2000);
